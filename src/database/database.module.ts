@@ -13,8 +13,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
       useFactory: (configService: ConfigService) => ({
         type: 'mysql', //Change depending of database
         host: configService.get('MYSQL_HOST'),
-        port: configService.get('MYSQL_PORT'),
-        username: configService.get('MYSQL_USER'),
+        port: parseInt(configService.get('MYSQL_PORT')),
+        username: configService.get('MYSQL_USERNAME'),
         password: configService.get('MYSQL_PASSWORD'),
         database: configService.get('MYSQL_DATABASE'),
         entities: [
